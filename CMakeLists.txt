@@ -71,8 +71,23 @@ set(wxWidgets_CONFIGURATION mswu${CMAKE_DEBUG_POSTFIX})
 # 手动指定链接哪些动态库
 set(wxWidgets_EXCLUDE_COMMON_LIBRARIES TRUE)
  
-# findpackage
+# 查找 wxWidgets 库
 find_package(wxWidgets 3.2 COMPONENTS core base REQUIRED)
+
+#[[ Boost 库处理 ============================================================
+    
+]]
+# 首选的Boost安装路径
+set(BOOST_ROOT E:/program/boost-1.82.0)
+# 首选的头文件搜索路径
+set(BOOST_INCLUDEDIR ${BOOST_ROOT})
+# 首选的库文件搜索路径
+set(BOOST_LIBRARYDIR ${BOOST_ROOT}/stage/lib)
+# 默认是OFF. 如果开启了，则不会搜索用户指定路径之外的路径
+set(Boost_NO_SYSTEM_PATHS ON)
+find_package(Boost 1.82.0 REQUIRED)
+
+
 
 # 公共头文件
 include_directories(${CMAKE_SOURCE_DIR}/src/wx_calc_common)

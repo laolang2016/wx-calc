@@ -1,5 +1,7 @@
 #include "CalcKernel.h"
 
+#include <boost/multiprecision/cpp_int.hpp>
+
 KHL_CALC_START
 
 Calculator::Calculator()
